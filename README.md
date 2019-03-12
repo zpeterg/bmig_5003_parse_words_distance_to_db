@@ -3,7 +3,9 @@ A command-line script by Peter Granderson that loads one or more files, splits/f
 A separate script allows output of all words (or a particular word) and the count of surrounding words up to distance of 3 intervening words.
 
 # Install
-```git clone git@github.com:zpeterg/bmig_5003_parse_words_distance_to_db```
+1. Setup environment: ```conda env create -f environment.yml```
+2. Activate it: ```conda activate zpeterg```
+3. ```git clone git@github.com:zpeterg/bmig_5003_parse_words_distance_to_db```
 
 # Run
 1. cd into the directory
