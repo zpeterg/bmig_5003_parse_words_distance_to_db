@@ -32,7 +32,7 @@ class IndexTest(unittest.TestCase):
 
     def test_get_and_filter_simple(self):
         options = {
-            'files': ['small_test.txt'],
+            'files': ['testfiles/small_test.txt'],
             'start': 'foo',
             'stop': 'bar',
             'finish': 'enough',
@@ -70,7 +70,7 @@ class IndexTest(unittest.TestCase):
                ('toothpick', 'flight-manual', 0)]
         run([
             '',
-            '--input=small_test.txt',
+            '--input=testfiles/small_test.txt',
             '--start=foo',
             '--stop=bar',
             '--finish=007',
@@ -121,7 +121,7 @@ class IndexTest(unittest.TestCase):
         ]
         run([
             '',
-            '--input=small_test.txt',
+            '--input=testfiles/small_test.txt',
             '--start=foo',
             '--stop=bar',
             '--finish=007',
@@ -129,7 +129,7 @@ class IndexTest(unittest.TestCase):
         # run a second time
         run([
             '',
-            '--input=small_test.txt',
+            '--input=testfiles/small_test.txt',
             '--start=foo',
             '--stop=bar',
             '--finish=007',

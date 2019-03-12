@@ -33,14 +33,14 @@ def on_word(word):
 
 class GetFileTest(unittest.TestCase):
     def test_getFile_basic(self):
-        self.assertEqual(words, getFile('small_test.txt', lambda a: a))
+        self.assertEqual(words, getFile('testfiles/small_test.txt', lambda a: a))
 
     def test_getFile_no_file(self):
         self.assertRaises(FileNotFoundError, getFile, 'aaa.txt', lambda a: a)
 
     def test_getFile_(self):
         res = ['Fishhi', 'hathi', 'foohi', 'cowhi', 'Cowhi', 'siamese.hi', 'Wonderlandhi', 'foohi', 'toothpastehi', 'barhi']
-        self.assertEqual(res, getFile('small_test.txt', on_word))
+        self.assertEqual(res, getFile('testfiles/small_test.txt', on_word))
 
     def test_getFile_moby(self):
         t0 = time()

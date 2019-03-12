@@ -1,0 +1,2 @@
+testfiles/small_test.txt
+testfiles/small_test2.txt

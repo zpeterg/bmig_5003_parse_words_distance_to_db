@@ -3,7 +3,7 @@ from utils import dealArgs, cleanWord
 
 
 args = [
-    '--input=small_test.txt',
+    '--input=testfiles/small_test.txt',
     '--start=foo',
     '--stop=bar',
     '--finish=enough',
@@ -14,7 +14,7 @@ args = [
 class UtilsTest(unittest.TestCase):
     def test_deal_args(self):
         res = {
-            'files': ['small_test.txt'],
+            'files': ['testfiles/small_test.txt'],
             'start': 'foo',
             'stop': 'bar',
             'finish': 'enough',
@@ -25,7 +25,7 @@ class UtilsTest(unittest.TestCase):
 
     def test_multi_file(self):
         res = {
-            'file': ['small_test.txt', 'small_test2.txt'],
+            'file': ['testfiles/small_test.txt', 'testfiles/small_test2.txt'],
             'start': 'foo',
             'stop': 'bar',
             'finish': 'enough',

@@ -20,10 +20,10 @@ A separate script allows output of all words (or a particular word) and the coun
      ```
 ## Examples
 To record words to database:
-```python index.py --input=small_test.txt --start=foo --stop=bar --finish=enough -c```
+```python index.py --input=testfiles/small_test.txt --start=foo --stop=bar --finish=enough -c```
 
 To add another set, this time from a list of inputs:
-```python index.py --inputs=small_test_list.txt --start=foo --stop=bar --finish=enough```
+```python index.py --inputs=testfiles/small_test_list.txt --start=foo --stop=bar --finish=enough```
 
 # Read
 1. ```python

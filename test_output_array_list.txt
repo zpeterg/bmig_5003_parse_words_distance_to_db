@@ -1,2 +1,0 @@
-test_output_array.json
-test_output_array2.json
