@@ -1,13 +1,13 @@
 # Design
 
 # Design reasoning
-I intentionally kept the words in a single database along with their distance. This was for 2 reasons:
+I intentionally kept the words in a single database along with their distance and their count. This was for 2 reasons:
 - Little Benefit: Since words are not much longer than integers would be (depending on length), there is little advantage in space-savings.
 - Faster: 
     - Because it avoids a massive JOIN between the words and the word locations, the speed should be much greater in a single table.
     - Additionally, it would have required more processing (and possibly multiple calls to the DB) to store each word in one table (if it didn't exist), and then store the distances in a separate table.
-- Ease-of-use: Splitting the words and their distances between tables would have made it unnecessarily complex to run unit-tests and retrieve the actual list.
-    
+- Ease-of-use: Splitting the words, distances and counts between tables would have made it unnecessarily complex to run unit-tests and retrieve the actual list.
+
 
 # Design
 ## Entry points

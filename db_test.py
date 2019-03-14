@@ -55,6 +55,7 @@ class dbTest(unittest.TestCase):
 
     def test_get_word(self):
         word_pairs = [
+            ('fish', '', -1),
             ('fish', 'fire', 0),
             ('fish', 'hook', 0),
             ('fish', 'hook', 1),
@@ -68,7 +69,9 @@ class dbTest(unittest.TestCase):
         add_words(conn, word_pairs, table_name)
         # testing this
         response = get_word(conn, 'fish', table_name)
+        self.maxDiff = None
         self.assertEqual(response, [
+            ('fish', '', 'self', 1),
             ('fish', 'fire', 0, 1),
             ('fish', 'hook', 0, 1),
             ('fish', 'hook', 1, 2),

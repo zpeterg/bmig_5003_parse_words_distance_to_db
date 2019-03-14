@@ -8,6 +8,9 @@ def getPairs(words, depth=4):
     for i, word in enumerate(words):
         word = word.lower()
         words_len = len(words)-1
+        # Store the word itself for word-count
+        rtn.append((word, '', -1))
+        # Store the word relative to words following it (controlled by 'depth' variable)
         for d in range(depth):
             # add next, if exists
             if i+d+1 <= words_len:

@@ -1,6 +1,11 @@
 # bmig_5003_parse_words_distance_to_db
-A command-line script by Peter Granderson that loads one or more files, splits/filters them by word and saves them to a SQLite database.
-A separate script allows output of all words (or a particular word) and the count of surrounding words up to distance of 3 intervening words.
+A command-line script by Peter Granderson that loads one or more files, splits/filters them by 
+word and saves them to a SQLite database.
+A separate script allows output of all words (or a particular word) and the count of words and 
+surrounding words up to distance of 3 intervening words.
+
+# Design docs
+See docs/ directory.
 
 # Install
 1. Setup environment: ```conda env create -f environment.yml```
@@ -33,10 +38,22 @@ To add another set, this time from a list of inputs:
 
 ## Examples
 Read the count of a particular word from the database:
-```python read.py cow```
+    ```python read.py cow```
 
 Read the count of all words (ordered by descending count) from the database:
 ```python read.py```
 
+The output looks like the below. Distance 'self' means that these entries are counts of word-occurrence.
+```
+    WORD             ASSOC            DISTANCE         COUNT
+    cow                               self             2
+    flight-manual                     self             1
+    ...
+    cow              cow              0                2
+    cow              siamese          0                1
+    flight-manual    milky            0                1
+    flight-manual    toothpick        0                1 
+    ...
+```
 # Run Unit Tests
 ```python -m unittest discover -p "*_test.py"```

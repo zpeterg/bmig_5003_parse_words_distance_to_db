@@ -38,7 +38,13 @@ def empty_table(conn, table_name):
 
 def get_word(conn, word, table_name):
     cur = conn.cursor()
-    cur.execute(f"SELECT word, word2, distance, COUNT(word) as word_count FROM {table_name} WHERE word = ? GROUP BY word, word2, distance ORDER BY distance ASC, word_count DESC", [word])
+    cur.execute(f"""
+        SELECT word, word2, (CASE WHEN distance = -1 THEN 'self' ELSE distance END), COUNT(word) as word_count 
+        FROM {table_name} 
+        WHERE word = ? 
+        GROUP BY word, word2, distance 
+        ORDER BY distance ASC, word_count DESC
+    """, [word])
     result = cur.fetchall()
     # If nothing, return empty array
     if result is None:
@@ -47,7 +53,7 @@ def get_word(conn, word, table_name):
 
 def get_words(conn, table_name):
     cur = conn.cursor()
-    cur.execute(f"SELECT word, word2, distance, COUNT(word) as word_count FROM {table_name} GROUP BY word, word2, distance ORDER BY distance ASC, word_count DESC")
+    cur.execute(f"SELECT word, word2, (CASE WHEN distance = -1 THEN 'self' ELSE distance END), COUNT(word) as word_count FROM {table_name} GROUP BY word, word2, distance ORDER BY distance ASC, word_count DESC")
     result = cur.fetchall()
     # If nothing, return empty array
     if result is None:
